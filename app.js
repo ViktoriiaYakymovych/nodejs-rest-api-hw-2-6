@@ -14,8 +14,7 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 
-// /users/register - шлях з реквайрементів в дз
-app.use("/api/users", authRouter);
+app.use("/users", authRouter);
 app.use("/api/contacts", contactsRouter);
 
 app.use((req, res) => {
