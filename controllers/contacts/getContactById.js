@@ -6,11 +6,11 @@ const getContactById = async (req, res) => {
   // const contact = await Contact.findOne({ _id: contactId });
   const contact = await Contact.findById(contactId);
   if (!contact) {
-    throw HttpError(404, "Not found");
+    throw HttpError(404);
   }
   res.json(contact);
 };
 
-module.exports = module.exports = {
+module.exports = {
   getContactById: ctrlWrapper(getContactById),
 };

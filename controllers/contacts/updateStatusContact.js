@@ -7,11 +7,11 @@ const updateStatusContact = async (req, res) => {
     new: true,
   });
   if (!updetedContact) {
-    throw HttpError(404, "Not found");
+    throw HttpError(404);
   }
   res.json(updetedContact);
 };
 
-module.exports = module.exports = {
+module.exports = {
   updateStatusContact: ctrlWrapper(updateStatusContact),
 };

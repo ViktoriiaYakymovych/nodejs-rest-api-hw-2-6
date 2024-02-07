@@ -2,10 +2,11 @@ const { Contact } = require("../../models/contacts");
 const { ctrlWrapper } = require("../../helpers");
 
 const addNewContact = async (req, res) => {
-  const newContact = await Contact.create(req.body);
+  const { _id: owner } = req.user;
+  const newContact = await Contact.create({ ...req.body, owner });
   res.status(201).json(newContact);
 };
 
-module.exports = module.exports = {
+module.exports = {
   addNewContact: ctrlWrapper(addNewContact),
 };
